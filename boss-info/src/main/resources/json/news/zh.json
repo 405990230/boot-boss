@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "oid": "news",
+      "name": "要问"
+    },
+    {
+      "oid": "world",
+      "name": "世界"
+    },
+    {
+      "oid": "finance",
+      "name": "经济"
+    },
+    {
+      "oid": "tech",
+      "name": "科技"
+    },
+    {
+      "oid": "sports",
+      "name": "体育"
+    },
+    {
+      "oid": "ent",
+      "name": "娱乐"
+    }
+  ]
+}

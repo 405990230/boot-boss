@@ -1,0 +1,38 @@
+{
+  "tables": [
+    {
+      "name": "PrimaryResult",
+      "columns": [
+        {
+          "name": "customDimensions_VIN",
+          "type": "string"
+        },
+        {
+          "name": "customDimensions_VERSION",
+          "type": "string"
+        },
+        {
+          "name": "Count",
+          "type": "long"
+        }
+      ],
+      "rows": [
+        [
+          "WBACR6100KLH74402",
+          "NOS",
+          606
+        ],
+        [
+          "WBACR6100KLH87649",
+          "0.3.8",
+          274
+        ],
+        [
+          "WBACR6100KLH74576",
+          "0.3.5",
+          159
+        ]
+      ]
+    }
+  ]
+}

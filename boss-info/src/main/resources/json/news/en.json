@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "oid": "news",
+      "name": "top"
+    },
+    {
+      "oid": "world",
+      "name": "world"
+    },
+    {
+      "oid": "finance",
+      "name": "economy"
+    },
+    {
+      "oid": "tech",
+      "name": "technology"
+    },
+    {
+      "oid": "sports",
+      "name": "sport"
+    },
+    {
+      "oid": "ent",
+      "name": "entertainment"
+    }
+  ]
+}

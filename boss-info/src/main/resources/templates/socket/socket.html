@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>socket</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<br>
+<span th:text="${cid}"></span></br>
+<span th:text="${basePath}" id="basePath"></span></br>
+<!--<input type="text" class="form-control1" id="cid" name="cid" th:value="${cid}"></br>-->
+<!--<input type="text" class="form-control1" id="path" name="path" th:value="${basePath}"></br>-->
+</body>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript">
+    var socket;
+    if (typeof(WebSocket) == "undefined") {
+        console.log("您的浏览器不支持WebSocket");
+    } else {
+        console.log("您的浏览器支持WebSocket");
+        var cid = [[${cid}]];
+        var basePath = $("#basePath").val()
+        //console.log(basePath+"/websocket/${cid}".replace("http","ws"));
+        //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
+        //等同于socket = new WebSocket("ws://localhost:8080/websocket/20");
+        socket = new WebSocket((basePath + "/websocket/" + cid).replace("http", "ws"));
+        //socket = new WebSocket(url);
+        //打开事件
+        socket.onopen = function () {
+            console.log("Socket 已打开");
+            //socket.send("这是来自客户端的消息" + location.href + new Date());
+        };
+        //获得消息事件
+        socket.onmessage = function (msg) {
+            console.log(msg.data);
+            //发现消息进入    开始处理前端触发逻辑
+        };
+        //关闭事件
+        socket.onclose = function () {
+            console.log("Socket已关闭");
+        };
+        //发生了错误事件
+        socket.onerror = function () {
+            alert("Socket发生了错误");
+            //此时可以尝试刷新页面
+        }
+    }
+</script>
+
+<body>
+hi !!!
+</body>
+</html>

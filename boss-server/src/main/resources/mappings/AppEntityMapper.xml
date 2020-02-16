@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boss.server.dao.AppEntityMapper">
+    <resultMap id="BaseResultMap" type="com.boss.server.entity.AppEntity">
+        <id column="appid" property="appid" jdbcType="VARCHAR"/>
+        <result column="size" property="size" jdbcType="INTEGER"/>
+        <result column="url" property="url" jdbcType="LONGVARCHAR"/>
+        <result column="policyUrl" property="policyurl" jdbcType="LONGVARCHAR"/>
+        <result column="hash" property="hash" jdbcType="LONGVARCHAR"/>
+        <result column="version" property="version" jdbcType="LONGVARCHAR"/>
+        <result column="attributes" property="attributes" jdbcType="LONGVARCHAR"/>
+        <result column="target" property="target" jdbcType="LONGVARBINARY"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        appid, size, url, policyUrl, hash, version, attributes, target
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from app
+        where appid = #{appid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from app
+        where appid = #{appid,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.boss.server.entity.AppEntity">
+        insert into app (appid, size, url,
+        policyUrl, hash, version,
+        attributes, target)
+        values (#{appid,jdbcType=VARCHAR}, #{size,jdbcType=INTEGER}, #{url,jdbcType=LONGVARCHAR},
+        #{policyurl,jdbcType=LONGVARCHAR}, #{hash,jdbcType=LONGVARCHAR}, #{version,jdbcType=LONGVARCHAR},
+        #{attributes,jdbcType=LONGVARCHAR}, #{target,jdbcType=LONGVARBINARY})
+    </insert>
+    <insert id="insertSelective" parameterType="com.boss.server.entity.AppEntity">
+        insert into app
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="appid != null">
+                appid,
+            </if>
+            <if test="size != null">
+                size,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="policyurl != null">
+                policyUrl,
+            </if>
+            <if test="hash != null">
+                hash,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="attributes != null">
+                attributes,
+            </if>
+            <if test="target != null">
+                target,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="appid != null">
+                #{appid,jdbcType=VARCHAR},
+            </if>
+            <if test="size != null">
+                #{size,jdbcType=INTEGER},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="policyurl != null">
+                #{policyurl,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="hash != null">
+                #{hash,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="attributes != null">
+                #{attributes,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="target != null">
+                #{target,jdbcType=LONGVARBINARY},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.boss.server.entity.AppEntity">
+        update app
+        <set>
+            <if test="size != null">
+                size = #{size,jdbcType=INTEGER},
+            </if>
+            <if test="url != null">
+                url = #{url,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="policyurl != null">
+                policyUrl = #{policyurl,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="hash != null">
+                hash = #{hash,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="attributes != null">
+                attributes = #{attributes,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="target != null">
+                target = #{target,jdbcType=LONGVARBINARY},
+            </if>
+        </set>
+        where appid = #{appid,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.boss.server.entity.AppEntity">
+        update app
+        set size = #{size,jdbcType=INTEGER},
+        url = #{url,jdbcType=LONGVARCHAR},
+        policyUrl = #{policyurl,jdbcType=LONGVARCHAR},
+        hash = #{hash,jdbcType=LONGVARCHAR},
+        version = #{version,jdbcType=LONGVARCHAR},
+        attributes = #{attributes,jdbcType=LONGVARCHAR},
+        target = #{target,jdbcType=LONGVARBINARY}
+        where appid = #{appid,jdbcType=VARCHAR}
+    </update>
+
+    <select id="findResults" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select appid, size, url, policyUrl, hash, version, attributes, target from app where 1 = 1
+        <if test="appid != null and appid != '' ">
+            and appid = #{appid,jdbcType=BIGINT}
+        </if>
+        <if test="size != null and size != '' ">
+            and size = #{size,jdbcType=INTEGER}
+        </if>
+        <if test="url != null and url != '' ">
+            and url = #{url,jdbcType=INTEGER}
+        </if>
+        <if test="policyurl != null and policyurl != '' ">
+            and policyurl = #{policyurl,jdbcType=INTEGER}
+        </if>
+        <if test="hash != null and hash != '' ">
+            and hash = #{hash,jdbcType=INTEGER}
+        </if>
+        <if test="version != null and version != '' ">
+            and version = #{version,jdbcType=INTEGER}
+        </if>
+        <if test="attributes != null and attributes != '' ">
+            and attributes = #{attributes,jdbcType=INTEGER}
+        </if>
+        ORDER BY appid desc limit #{start} , #{pageSize}
+    </select>
+
+    <select id="getAppList" resultMap="BaseResultMap" parameterType="java.util.Map">
+        SELECT appid,url,policyUrl,hash,size,version,attributes FROM app
+    </select>
+
+    <select id="getAppByIdVer" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select target from app where appid = #{appid,jdbcType=BIGINT} and version = #{version,jdbcType=INTEGER} limit 1
+    </select>
+
+</mapper>

@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "channel": "topNewsOverview",
+      "oid": "news"
+    },
+    {
+      "channel": "worldNewsOverview",
+      "oid": "world"
+    },
+    {
+      "channel": "economyNewsOverview",
+      "oid": "finance"
+    },
+    {
+      "channel": "technologyNewsOverview",
+      "oid": "tech"
+    },
+    {
+      "channel": "sportNewsOverview",
+      "oid": "sports"
+    },
+    {
+      "channel": "entertainmentNewsOverview",
+      "oid": "ent"
+    }
+  ]
+}
