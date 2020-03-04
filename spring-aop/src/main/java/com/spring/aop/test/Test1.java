@@ -1,7 +1,7 @@
 package com.spring.aop.test;
 
 import com.spring.aop.dao.Dao;
-import sun.misc.ProxyGenerator;
+//import sun.misc.ProxyGenerator;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,7 +17,7 @@ public class Test1 {
      */
     public static void main(String[] args) {
         Class<?> [] interfaces = new Class[]{Dao.class};
-        byte bytes[] = ProxyGenerator.generateProxyClass("LubanAa",interfaces);
+        byte bytes[] = null;//ProxyGenerator.generateProxyClass("LubanAa",interfaces);
         File file = new File("/Users/qxr4383/Documents/work/myself/code/luban.class");
         try {
             FileOutputStream fw = new FileOutputStream(file);

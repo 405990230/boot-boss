@@ -1,4 +1,4 @@
-package com.boss.algorithm.maopao;
+package com.boss.algorithm.bubble;
 
 public class ShowSpaceDemo {
     public static void main(String[] args) {

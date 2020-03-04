@@ -4,9 +4,11 @@ package com.boss.design.structuralModel.decorator;
  * Created by yd on 2019/4/2.
  * 创建PepperFoodDecorator装饰器类
  */
-public class PepperFoodDecorator extends FoodDecorator {
+public class PepperFoodDecorator implements Food {
+    private Food food;
     public PepperFoodDecorator(Food food) {
-        super(food);
+        //super(food);
+        this.food = food;
     }
 
     @Override

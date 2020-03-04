@@ -288,8 +288,6 @@
         <module>boss-httpclient</module>
         <module>boss-javaBasic</module>
         <module>test-redis</module>
-        <module>spring-aop</module>
-        <module>spring-lifecycle</module>
     </modules>
 
 
