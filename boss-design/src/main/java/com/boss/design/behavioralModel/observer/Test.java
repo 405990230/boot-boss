@@ -1,4 +1,4 @@
-package com.boss.design.observer;
+package com.boss.design.behavioralModel.observer;
 
 /**
  * Created by yd on 2019/3/20.

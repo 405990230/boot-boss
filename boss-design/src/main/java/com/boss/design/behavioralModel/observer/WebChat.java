@@ -1,6 +1,4 @@
-package com.boss.design.observer;
-
-import lombok.extern.slf4j.Slf4j;
+package com.boss.design.behavioralModel.observer;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.boss.design.observer;
+package com.boss.design.behavioralModel.observer;
 
 /**
  * 抽象观察者

@@ -1,4 +1,4 @@
-package com.boss.design.observer;
+package com.boss.design.behavioralModel.observer;
 
 import lombok.extern.slf4j.Slf4j;
 

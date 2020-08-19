@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Test2 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(parseNum(100,10)));
+        System.out.println(Arrays.toString(parseNum(10,3)));
     }
 
     public static double[] parseNum(double total,int num){
